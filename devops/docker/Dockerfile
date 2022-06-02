@@ -1,11 +1,7 @@
-ARG BASEIMAGE=anave/php-laravel:8
+ARG BASEIMAGE=anave/php-laravel:latest
 FROM ${BASEIMAGE}
 
 ARG ROOT=/var/www/html
-
-RUN pecl install -o -f redis; \
-    rm -rf /tmp/pear; \
-    docker-php-ext-enable redis;
 
 COPY . ${ROOT}
 
